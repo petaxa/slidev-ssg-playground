@@ -1,0 +1,27 @@
+{
+  "name": "slidev-ssg-playground",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "build": "slidev build",
+    "build:ssg": "pnpm run build && pnpm run ssg:build && pnpm run ssg:run",
+    "dev": "slidev --open",
+    "export": "slidev export",
+    "ssg:build": "rolldown -c tools/ssg/rolldown.config.ts",
+    "ssg:run": "node tools/ssg/dist/run.js",
+    "ssg:preview": "serve dist-ssg"
+  },
+  "dependencies": {
+    "@slidev/cli": "^52.11.1",
+    "@slidev/theme-default": "latest",
+    "@slidev/theme-seriph": "latest",
+    "unhead": "^2.1.1",
+    "vue": "^3.5.26"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.57.0",
+    "rolldown": "1.0.0-beta.57",
+    "serve": "^14.2.5",
+    "typescript": "^5.9.3"
+  }
+}
