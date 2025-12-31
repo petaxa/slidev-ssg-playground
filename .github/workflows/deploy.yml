@@ -31,8 +31,14 @@ jobs:
       - name: Install dependencies
         run: nci
 
-      - name: Build
-        run: nr build:ssg --base /${{github.event.repository.name}}/
+      - name: Build Slidev
+        run: nr build --base /${{github.event.repository.name}}/
+      - name: Build SSG Tool
+        run: nr ssg:build
+      - name: Install playwright
+        run: nlx playwright install
+      - name: Run SSG Tool
+        run: nr ssg:run
 
       - name: Setup Pages
         uses: actions/configure-pages@v4
